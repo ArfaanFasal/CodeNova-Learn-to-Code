@@ -1,0 +1,175 @@
+/* Light admin layout inspired by campaign dashboard */
+.admin-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  background: #f5f7fb;
+  color: #0f172a;
+}
+
+.admin-sidebar {
+  background: #0b4c8c;
+  color: #fff;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 8px 10px;
+}
+
+.brand-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.admin-nav a {
+  color: rgba(255, 255, 255, 0.9);
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.admin-nav a:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.admin-nav a.active {
+  background: rgba(255, 255, 255, 0.22);
+  color: #fff;
+}
+
+.admin-logout {
+  margin-top: auto;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.admin-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-topbar {
+  background: #fff;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 20px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.admin-topbar h1 {
+  margin: 0 0 4px;
+  font-size: 1.35rem;
+}
+
+.admin-topbar p {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.admin-main {
+  flex: 1;
+  padding: 24px 28px 40px;
+}
+
+.admin-main .card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+}
+
+.admin-main .text-muted {
+  color: #64748b;
+}
+
+.admin-main .btn-primary {
+  background: #22c55e;
+  color: #fff;
+}
+
+.admin-main .btn-secondary {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+}
+
+.admin-main .btn-ghost {
+  background: transparent;
+  color: #475569;
+}
+
+.admin-main .admin-table th,
+.admin-main .admin-table td {
+  border-bottom: 1px solid #e2e8f0;
+  color: #334155;
+}
+
+.admin-dashboard-hero {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.hero-pill {
+  background: #eff6ff;
+  color: #1e40af;
+  padding: 10px 16px;
+  border-radius: 999px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.admin-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.admin-metric-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 18px;
+}
+
+.admin-metric-card h3 {
+  margin: 0 0 4px;
+  color: #0f172a;
+}
+
+.admin-metric-card p {
+  margin: 0;
+  color: #64748b;
+}

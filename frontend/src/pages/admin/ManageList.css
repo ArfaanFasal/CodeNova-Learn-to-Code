@@ -1,0 +1,527 @@
+/* Shared styling for Manage Coding, Manage Assessments, Manage Courses:
+   Google Drive-style expandable folder tree: Languages → Beginner/Intermediate/Expert → Items
+   Search bar at each level, modern UI */
+
+.manage-admin-page {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.manage-admin-page .page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.manage-admin-page .page-header h1 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.manage-admin-page .search-and-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.manage-admin-page .search-box-wrap {
+  flex-shrink: 0;
+}
+
+.manage-admin-page .search-box {
+  width: 100%;
+  max-width: 320px;
+  padding: 10px 14px 10px 36px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'/%3E%3C/svg%3E") no-repeat 10px center;
+  background-size: 18px 18px;
+  color: #0f172a;
+}
+
+.manage-admin-page .search-box::placeholder {
+  color: #94a3b8;
+}
+
+.manage-admin-page .search-box:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.manage-admin-page .list-panel {
+  flex: 0 0 360px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+  overflow: hidden;
+}
+
+.manage-admin-page .list-panel-title {
+  padding: 14px 16px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0f172a;
+  border-bottom: 1px solid #e2e8f0;
+  background: #f8fafc;
+}
+
+.manage-admin-page .list-panel-scroll {
+  max-height: 70vh;
+  overflow-y: auto;
+  padding: 8px;
+}
+
+/* Google Drive-style folder tree */
+.manage-admin-page .drive-folder-tree {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.manage-admin-page .drive-folder-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  font-size: 0.9rem;
+  color: #334155;
+}
+
+.manage-admin-page .drive-folder-row:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.manage-admin-page .drive-folder-row.selected {
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-weight: 500;
+}
+
+.manage-admin-page .drive-folder-row .folder-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  transition: transform 0.2s;
+}
+
+.manage-admin-page .drive-folder-row.expanded .folder-icon {
+  transform: rotate(90deg);
+  color: #3b82f6;
+}
+
+.manage-admin-page .drive-folder-row .folder-name {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.manage-admin-page .drive-folder-children {
+  margin-left: 28px;
+  border-left: 2px solid #e2e8f0;
+  padding-left: 12px;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+.manage-admin-page .drive-item-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 4px;
+  transition: background 0.15s;
+  border: 1px solid transparent;
+}
+
+.manage-admin-page .drive-item-row .folder-name,
+.manage-admin-page .drive-item-row .item-title {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.manage-admin-page .drive-item-row:hover {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+.manage-admin-page .drive-item-row.selected {
+  background: #ecfdf5;
+  border-color: #22c55e;
+  box-shadow: 0 0 0 1px #22c55e;
+}
+
+.manage-admin-page .drive-item-row .item-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: #94a3b8;
+}
+
+.manage-admin-page .drive-level-badge {
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 500;
+}
+
+.manage-admin-page .drive-level-badge.beginner { background: #dcfce7; color: #166534; }
+.manage-admin-page .drive-level-badge.intermediate { background: #fef3c7; color: #b45309; }
+.manage-admin-page .drive-level-badge.expert { background: #fee2e2; color: #b91c1c; }
+
+/* Level-specific search bars */
+.manage-admin-page .drive-search-level {
+  padding: 8px 12px;
+  border-bottom: 1px solid #f1f5f9;
+  background: #fff;
+}
+
+.manage-admin-page .drive-search-level .search-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.manage-admin-page .language-folders {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px 10px 4px;
+}
+
+.manage-admin-page .language-folder {
+  border-radius: 999px;
+  padding: 6px 14px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  color: #0f172a;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.manage-admin-page .language-folder:hover {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+}
+
+.manage-admin-page .language-folder.active {
+  background: #22c55e;
+  border-color: transparent;
+  color: #f9fafb;
+  box-shadow: 0 6px 16px rgba(34, 197, 94, 0.3);
+}
+
+.manage-admin-page .language-folder-name {
+  white-space: nowrap;
+}
+
+.manage-admin-page .group-section {
+  margin-bottom: 16px;
+}
+
+.manage-admin-page .group-section:last-child {
+  margin-bottom: 0;
+}
+
+.manage-admin-page .group-section-heading {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #64748b;
+  padding: 8px 10px 6px;
+  margin-bottom: 4px;
+  border-left: 3px solid #22c55e;
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+.manage-admin-page .group-section-heading.beginner { border-left-color: #22c55e; }
+.manage-admin-page .group-section-heading.intermediate { border-left-color: #f59e0b; }
+.manage-admin-page .group-section-heading.expert { border-left-color: #ef4444; }
+
+.manage-admin-page .list-item {
+  padding: 12px 14px;
+  margin-bottom: 6px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  cursor: pointer;
+  background: #fff;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.manage-admin-page .list-item:hover {
+  border-color: #cbd5e1;
+  background: #f8fafc;
+}
+
+.manage-admin-page .list-item.selected {
+  border-color: #22c55e;
+  background: #ecfdf5;
+  box-shadow: 0 0 0 1px #22c55e;
+}
+
+.manage-admin-page .list-item .item-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #1e293b;
+}
+
+.manage-admin-page .list-item .item-meta {
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+.manage-admin-page .list-item-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.manage-admin-page .list-item-actions .item-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.manage-admin-page .list-item-actions .btn-remove {
+  flex-shrink: 0;
+  padding: 4px 8px;
+  color: #64748b;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.manage-admin-page .list-item-actions .btn-remove:hover {
+  color: #dc2626;
+}
+
+/* Item row actions (edit + delete) */
+.manage-admin-page .drive-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.manage-admin-page .drive-item-actions .btn-xs {
+  padding: 2px 6px;
+  font-size: 14px;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-dialog {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 540px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-title {
+  padding: 20px 24px;
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  border-bottom: 1px solid #e2e8f0;
+  background: #f8fafc;
+}
+
+.modal-body {
+  padding: 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.modal-footer {
+  padding: 16px 24px;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.manage-admin-page .content-panel {
+  flex: 1;
+  min-width: 0;
+}
+
+.manage-admin-page .content-panel .card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  padding: 24px;
+}
+
+.manage-admin-page .empty-list-msg {
+  padding: 16px;
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.manage-admin-page .two-col-layout {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+/* Coursera-like typography for course editor */
+.manage-admin-page .coursera-heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 8px;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.manage-admin-page .coursera-subheading {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #334155;
+  margin: 20px 0 10px;
+  line-height: 1.4;
+}
+
+.manage-admin-page .coursera-body {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0 0 16px;
+}
+
+.manage-admin-page .form-group label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #334155;
+}
+
+/* Final Assessment: language-scoped content (Theory / Practical sections) */
+.manage-admin-page .final-by-lang {
+  border-left-color: #6366f1;
+}
+
+.manage-admin-page .final-lang-header {
+  padding: 8px 12px 10px;
+  margin-bottom: 6px;
+  background: linear-gradient(90deg, rgba(99, 102, 241, 0.12) 0%, transparent 100%);
+  border-radius: 8px;
+  border-left: 3px solid #6366f1;
+}
+
+.manage-admin-page .final-lang-title {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #334155;
+}
+
+.manage-admin-page .final-lang-desc {
+  font-size: 0.75rem;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.manage-admin-page .final-add-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.manage-admin-page .final-add-label {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.manage-admin-page .btn-add-content {
+  padding: 4px 10px;
+  font-size: 12px;
+}
+
+.manage-admin-page .final-type-section {
+  margin-bottom: 14px;
+}
+
+.manage-admin-page .final-type-section:last-child {
+  margin-bottom: 0;
+}
+
+.manage-admin-page .final-type-heading {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+  padding: 6px 0 4px;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 6px;
+}
+
+.manage-admin-page .final-level-block {
+  animation: manage-fade-in 0.2s ease-out;
+}
+
+@keyframes manage-fade-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+  .manage-admin-page .two-col-layout {
+    flex-direction: column;
+  }
+  .manage-admin-page .list-panel {
+    flex: 1 1 auto;
+    max-height: 50vh;
+  }
+  .manage-admin-page .list-panel-scroll {
+    max-height: 50vh;
+  }
+}
